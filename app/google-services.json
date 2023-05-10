@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "767200189834",
+    "firebase_url": "https://cajoludu-default-rtdb.firebaseio.com",
+    "project_id": "cajoludu",
+    "storage_bucket": "cajoludu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767200189834:android:b69610a1c5b14def02bc73",
+        "android_client_info": {
+          "package_name": "com.example.cajoludu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767200189834-8dlrhpquakoo2mah6jqvpqjk89colj2t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cajoludu",
+            "certificate_hash": "b4b1605783b350fab26d97edf521c07f6ececaa0"
+          }
+        },
+        {
+          "client_id": "767200189834-i3m2k3cmqvblqvn7v1qe0j0uim41ogb6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ1d_nimWGTS7aPG3DwN77oCOpjOMaK7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767200189834-i3m2k3cmqvblqvn7v1qe0j0uim41ogb6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
