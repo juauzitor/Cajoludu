@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void cadastrarUsuario(View view) {
         // Implemente a lógica para a opção "Cadastrar Usuário" aqui
+        Intent intent = new Intent(this, CadastroActivity.class);
+        startActivity(intent);
     }
 
     public void login(View view) {

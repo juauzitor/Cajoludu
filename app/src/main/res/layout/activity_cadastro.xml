@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroActivity">
+
+    <EditText
+        android:id="@+id/editTextMatricula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Matrícula"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextMatricula"
+        android:layout_marginTop="16dp"
+        android:hint="Nome" />
+
+    <EditText
+        android:id="@+id/editTextTitulo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextNome"
+        android:layout_marginTop="16dp"
+        android:hint="Título do Filme 1" />
+
+    <EditText
+        android:id="@+id/editTextAno1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTitulo1"
+        android:layout_marginTop="16dp"
+        android:hint="Ano do Filme 1"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextTitulo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextAno1"
+        android:layout_marginTop="16dp"
+        android:hint="Título do Filme 2" />
+
+    <EditText
+        android:id="@+id/editTextAno2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTitulo2"
+        android:layout_marginTop="16dp"
+        android:hint="Ano do Filme 2"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextTitulo3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextAno2"
+        android:layout_marginTop="16dp"
+        android:hint="Título do Filme 3" />
+
+    <EditText
+        android:id="@+id/editTextAno3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextAno3"
+        android:layout_marginTop="16dp"
+        android:hint="Ano do Filme 3"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextTitulo4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextAno3"
+        android:layout_marginTop="16dp"
+        android:hint="Título do Filme 4" />
+
+    <EditText
+        android:id="@+id/editTextAno4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTitulo4"
+        android:layout_marginTop="16dp"
+        android:hint="Ano do Filme 4"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/buttonCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="57dp"
+        android:text="Cadastrar" />
+
+</RelativeLayout>
+
