@@ -3,10 +3,10 @@ package com.example.cajoludu;
 
 public class Filme {
     private String nome;
-    private short ano;
+    private int ano;
     private int curtidas;
 
-    public Filme(String nome, short ano) {
+    public Filme(String nome, int ano) {
         this.nome = nome;
         this.ano = ano;
         this.curtidas = 0;
@@ -20,11 +20,11 @@ public class Filme {
         this.nome = nome;
     }
 
-    public short getAno() {
+    public int getAno() {
         return ano;
     }
 
-    public void setAno(short ano) {
+    public void setAno(int ano) {
         this.ano = ano;
     }
 

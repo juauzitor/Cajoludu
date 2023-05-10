@@ -67,7 +67,7 @@
         android:id="@+id/editTextAno3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextAno3"
+        android:layout_below="@id/editTextTitulo3"
         android:layout_marginTop="16dp"
         android:hint="Ano do Filme 3"
         android:inputType="number" />

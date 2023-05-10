@@ -1,5 +1,6 @@
 package com.example.cajoludu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +38,7 @@ public class CadastroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
+        addDataToFirebase("1234","lasd");
         reference.child("usuario").child("145").child("nome").setValue("jor");
 
         // Inicializar os componentes da interface
@@ -61,13 +62,13 @@ public class CadastroActivity extends AppCompatActivity {
                 int matricula = Integer.parseInt(editTextMatricula.getText().toString());
                 String nome = editTextNome.getText().toString();
                 String titulo1 = editTextTitulo1.getText().toString();
-                short ano1 = Short.parseShort(editTextAno1.getText().toString());
+                int ano1 = Integer.parseInt(editTextAno1.getText().toString());
                 String titulo2 = editTextTitulo2.getText().toString();
-                short ano2 = Short.parseShort(editTextAno2.getText().toString());
+                int ano2 = Integer.parseInt(editTextAno2.getText().toString());
                 String titulo3 = editTextTitulo3.getText().toString();
-                short ano3 = Short.parseShort(editTextAno3.getText().toString());
+                int ano3 = Integer.parseInt(editTextAno3.getText().toString());
                 String titulo4 = editTextTitulo4.getText().toString();
-                short ano4 = Short.parseShort(editTextAno4.getText().toString());
+                int ano4 = Integer.parseInt(editTextAno4.getText().toString());
 
                 // Criar um objeto do tipo Usuario
                 Usuario usuario = new Usuario(matricula, nome);
@@ -77,22 +78,24 @@ public class CadastroActivity extends AppCompatActivity {
                 Filme Filme4 = new Filme(titulo4, ano4);
 
                 // Salvar o objeto do tipo Usuario no Firebase
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-                databaseReference.child("usuario").child(String.valueOf(matricula)).child("nome").setValue(usuario.getNome())
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(CadastroActivity.this, "Usuário cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(CadastroActivity.this, "Erro ao cadastrar usuário: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                addDataToFirebase(Integer.toString(usuario.getMatricula()), usuario.getNome());
+                reference.child("usuario").child(Integer.toString(usuario.getMatricula())).child("nome").setValue(usuario.getNome());
+                addFilmeToFirebase(Filme1, "1");
+                addFilmeToFirebase(Filme2, "2");
+                addFilmeToFirebase(Filme3, "3");
+                addFilmeToFirebase(Filme4, "4");
+
             }
         });
+    }
+
+    public void addDataToFirebase(String matricula, String nome){
+        reference.child("usuario").child(matricula).child("nome").setValue(nome);
+    }
+    public void addFilmeToFirebase(Filme filme, String a){
+        reference.child("Filmes").child(a).child("titulo").setValue(filme.getNome());
+        reference.child("Filmes").child(a).child("ano").setValue(filme.getAno());
+        reference.child("Filmes").child(a).child("curtidas").setValue(filme.getCurtidas());
     }
 }
 
