@@ -2,6 +2,7 @@ package com.example.cajoludu;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,31 +62,44 @@ public class CadastroActivity extends AppCompatActivity {
                 // Obter os valores digitados nos campos
                 int matricula = Integer.parseInt(editTextMatricula.getText().toString());
                 String nome = editTextNome.getText().toString();
-                String titulo1 = editTextTitulo1.getText().toString();
-                int ano1 = Integer.parseInt(editTextAno1.getText().toString());
-                String titulo2 = editTextTitulo2.getText().toString();
-                int ano2 = Integer.parseInt(editTextAno2.getText().toString());
-                String titulo3 = editTextTitulo3.getText().toString();
-                int ano3 = Integer.parseInt(editTextAno3.getText().toString());
-                String titulo4 = editTextTitulo4.getText().toString();
-                int ano4 = Integer.parseInt(editTextAno4.getText().toString());
 
                 // Criar um objeto do tipo Usuario
                 Usuario usuario = new Usuario(matricula, nome);
-                Filme Filme1 = new Filme(titulo1, ano1);
-                Filme Filme2 = new Filme(titulo2, ano2);
-                Filme Filme3 = new Filme(titulo3, ano3);
-                Filme Filme4 = new Filme(titulo4, ano4);
 
                 // Salvar o objeto do tipo Usuario no Firebase
                 addDataToFirebase(Integer.toString(usuario.getMatricula()), usuario.getNome());
                 reference.child("usuario").child(Integer.toString(usuario.getMatricula())).child("nome").setValue(usuario.getNome());
-                addFilmeToFirebase(Filme1, Integer.toString(usuario.getMatricula())+"1");
-                addFilmeToFirebase(Filme2, Integer.toString(usuario.getMatricula())+"2");
-                addFilmeToFirebase(Filme3, Integer.toString(usuario.getMatricula())+"3");
-                addFilmeToFirebase(Filme4, Integer.toString(usuario.getMatricula())+"4");
 
+                // Verificar e adicionar os filmes apenas se os campos não estiverem vazios
+                if (!TextUtils.isEmpty(editTextTitulo1.getText()) && !TextUtils.isEmpty(editTextAno1.getText())) {
+                    String titulo1 = editTextTitulo1.getText().toString();
+                    int ano1 = Integer.parseInt(editTextAno1.getText().toString());
+                    Filme filme1 = new Filme(titulo1, ano1);
+                    addFilmeToFirebase(filme1, Integer.toString(usuario.getMatricula())+"1");
+                }
+
+                if (!TextUtils.isEmpty(editTextTitulo2.getText()) && !TextUtils.isEmpty(editTextAno2.getText())) {
+                    String titulo2 = editTextTitulo2.getText().toString();
+                    int ano2 = Integer.parseInt(editTextAno2.getText().toString());
+                    Filme filme2 = new Filme(titulo2, ano2);
+                    addFilmeToFirebase(filme2, Integer.toString(usuario.getMatricula())+"2");
+                }
+
+                if (!TextUtils.isEmpty(editTextTitulo3.getText()) && !TextUtils.isEmpty(editTextAno3.getText())) {
+                    String titulo3 = editTextTitulo3.getText().toString();
+                    int ano3 = Integer.parseInt(editTextAno3.getText().toString());
+                    Filme filme3 = new Filme(titulo3, ano3);
+                    addFilmeToFirebase(filme3, Integer.toString(usuario.getMatricula())+"3");
+                }
+
+                if (!TextUtils.isEmpty(editTextTitulo4.getText()) && !TextUtils.isEmpty(editTextAno4.getText())) {
+                    String titulo4 = editTextTitulo4.getText().toString();
+                    int ano4 = Integer.parseInt(editTextAno4.getText().toString());
+                    Filme filme4 = new Filme(titulo4, ano4);
+                    addFilmeToFirebase(filme4, Integer.toString(usuario.getMatricula())+"4");
+                }
             }
+
         });
     }
 
