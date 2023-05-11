@@ -93,7 +93,7 @@ public class CadastroActivity extends AppCompatActivity {
         reference.child("usuario").child(matricula).child("nome").setValue(nome);
     }
     public void addFilmeToFirebase(Filme filme, String a){
-        reference.child("filmes").child(a).child("titulo").setValue(filme.getNome());
+        reference.child("filmes").child(a).child("nome").setValue(filme.getNome());
         reference.child("filmes").child(a).child("ano").setValue(filme.getAno());
         reference.child("filmes").child(a).child("curtidas").setValue(filme.getCurtidas());
     }
