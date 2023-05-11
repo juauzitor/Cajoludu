@@ -80,10 +80,10 @@ public class CadastroActivity extends AppCompatActivity {
                 // Salvar o objeto do tipo Usuario no Firebase
                 addDataToFirebase(Integer.toString(usuario.getMatricula()), usuario.getNome());
                 reference.child("usuario").child(Integer.toString(usuario.getMatricula())).child("nome").setValue(usuario.getNome());
-                addFilmeToFirebase(Filme1, "1");
-                addFilmeToFirebase(Filme2, "2");
-                addFilmeToFirebase(Filme3, "3");
-                addFilmeToFirebase(Filme4, "4");
+                addFilmeToFirebase(Filme1, Integer.toString(usuario.getMatricula())+"1");
+                addFilmeToFirebase(Filme2, Integer.toString(usuario.getMatricula())+"2");
+                addFilmeToFirebase(Filme3, Integer.toString(usuario.getMatricula())+"3");
+                addFilmeToFirebase(Filme4, Integer.toString(usuario.getMatricula())+"4");
 
             }
         });
@@ -93,9 +93,9 @@ public class CadastroActivity extends AppCompatActivity {
         reference.child("usuario").child(matricula).child("nome").setValue(nome);
     }
     public void addFilmeToFirebase(Filme filme, String a){
-        reference.child("Filmes").child(a).child("titulo").setValue(filme.getNome());
-        reference.child("Filmes").child(a).child("ano").setValue(filme.getAno());
-        reference.child("Filmes").child(a).child("curtidas").setValue(filme.getCurtidas());
+        reference.child("filmes").child(a).child("titulo").setValue(filme.getNome());
+        reference.child("filmes").child(a).child("ano").setValue(filme.getAno());
+        reference.child("filmes").child(a).child("curtidas").setValue(filme.getCurtidas());
     }
 }
 
